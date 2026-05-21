@@ -1,0 +1,415 @@
+/* ============================================
+   PROFESSIONAL THEME SYSTEM STYLES
+   ============================================ */
+
+:root {
+  --theme-main: #e66cb1;
+  --theme-dark: #8d3c78;
+  --theme-soft: #fff0f8;
+  --theme-accent: #ffd166;
+  --theme-gradient: linear-gradient(135deg, #e66cb1, #8d3c78);
+  --theme-image: none;
+  --theme-transition: 320ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   GLOBAL THEME APPLICATION
+   ============================================ */
+
+body[data-theme] {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  transition: all var(--theme-transition);
+}
+
+body[data-theme]::before {
+  content: '';
+  position: fixed;
+  inset: 64px 0 0;
+  z-index: -2;
+  background: 
+    linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0.9) 46%, rgba(255, 255, 255, 0.72)),
+    var(--theme-image);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 1;
+  filter: saturate(1.15) brightness(1.05);
+  pointer-events: none;
+  transition: all var(--theme-transition);
+}
+
+/* ============================================
+   HEADER STYLING
+   ============================================ */
+
+.app-header {
+  background: var(--theme-gradient);
+  box-shadow: 0 10px 28px rgba(17, 34, 46, 0.24);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all var(--theme-transition);
+}
+
+.nav-link.active {
+  color: white;
+  background: rgba(0, 0, 0, 0.24);
+  box-shadow: inset 0 -3px 0 var(--theme-accent);
+}
+
+/* ============================================
+   HERO PANEL WITH THEME IMAGE
+   ============================================ */
+
+.hero-panel {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.12) 42%, rgba(255, 255, 255, 0.88)),
+    var(--theme-image),
+    linear-gradient(135deg, var(--theme-main), var(--theme-dark));
+  background-size: cover, cover, 100% 100%;
+  background-position: center, center, 0 0;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 20px 50px var(--theme-main)66;
+  transition: all var(--theme-transition);
+}
+
+.hero-panel h1 {
+  text-shadow: 0 4px 0 rgba(0, 0, 0, 0.15), 0 2px 10px rgba(0, 0, 0, 0.1);
+  color: white;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.hero-panel .eyebrow {
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* ============================================
+   CARDS AND PANELS
+   ============================================ */
+
+.test-panel,
+.progress-panel,
+.lesson-board,
+.settings-card {
+  border: 2px solid var(--theme-main)80;
+  background: 
+    radial-gradient(circle at 85% 10%, 
+      var(--theme-accent)30, 
+      transparent 13rem),
+    rgba(255, 255, 255, 0.95);
+  box-shadow: 0 20px 50px var(--theme-main)33;
+  transition: all var(--theme-transition);
+}
+
+.test-panel:hover,
+.progress-panel:hover,
+.settings-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px var(--theme-main)44;
+  border-color: var(--theme-accent);
+}
+
+/* ============================================
+   TEST CARDS
+   ============================================ */
+
+.test-card {
+  border: 2px solid var(--theme-accent)80;
+  background: var(--theme-soft)cc;
+  transition: all 200ms ease;
+}
+
+.test-card.active {
+  border-color: var(--theme-main);
+  background: var(--theme-soft)ff;
+  box-shadow: inset 0 0 0 2px var(--theme-accent)66;
+}
+
+.test-card:hover {
+  border-color: var(--theme-accent);
+  transform: translateY(-2px);
+}
+
+.test-card b {
+  background: var(--theme-accent);
+  color: white;
+  border: 2px solid var(--theme-dark)80;
+  font-weight: 700;
+  box-shadow: 0 8px 20px var(--theme-accent)80;
+  transition: all 200ms ease;
+}
+
+.test-card b:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px var(--theme-accent)cc;
+}
+
+/* ============================================
+   BUTTONS AND CONTROLS
+   ============================================ */
+
+.gold-button,
+.lesson-row b {
+  background: var(--theme-accent);
+  color: white;
+  border: 2px solid var(--theme-dark)80;
+  font-weight: 700;
+  box-shadow: 0 8px 20px var(--theme-accent)80;
+  transition: all 200ms ease;
+}
+
+.gold-button:hover,
+.lesson-row b:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px var(--theme-accent)cc;
+}
+
+/* ============================================
+   PROGRESS BAR
+   ============================================ */
+
+#progressBar {
+  background: var(--theme-accent);
+  box-shadow: 0 0 20px var(--theme-accent);
+  transition: width 100ms linear, box-shadow 200ms ease;
+}
+
+/* ============================================
+   HERO METER
+   ============================================ */
+
+.hero-meter {
+  border: 10px solid rgba(255, 255, 255, 0.46);
+  border-top-color: var(--theme-accent);
+  background: white;
+  box-shadow: 0 8px 20px var(--theme-main)66;
+  animation: themePulse 2.5s ease-in-out infinite;
+}
+
+/* ============================================
+   THEME GALLERY CARDS
+   ============================================ */
+
+.theme-card {
+  border: 3px solid var(--theme-main)66;
+  background: linear-gradient(180deg, 
+    color-mix(in srgb, var(--theme-main) 20%, white),
+    color-mix(in srgb, var(--theme-dark) 20%, white));
+  box-shadow: 0 12px 30px var(--theme-main)44;
+  transition: all 280ms ease;
+  cursor: pointer;
+}
+
+.theme-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 40px var(--theme-main)55;
+  border-color: var(--theme-accent);
+}
+
+.theme-card.active {
+  border-color: var(--theme-accent);
+  box-shadow: 
+    0 20px 40px var(--theme-main)55,
+    0 0 30px var(--theme-accent);
+}
+
+/* ============================================
+   TYPING BOARD
+   ============================================ */
+
+.typing-board {
+  border: 3px solid var(--theme-main)88;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    0 20px 50px var(--theme-main)44,
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: all var(--theme-transition);
+}
+
+.quote-display {
+  border-color: var(--theme-main)66;
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.98),
+    var(--theme-soft)dd);
+  color: var(--ink);
+  transition: all var(--theme-transition);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes themeGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px var(--theme-accent)99;
+  }
+  50% {
+    box-shadow: 0 0 40px var(--theme-accent)cc;
+  }
+}
+
+@keyframes themePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.theme-card.active {
+  animation: themeGlow 2s ease-in-out infinite;
+}
+
+/* ============================================
+   SCORE CARDS
+   ============================================ */
+
+.score-list li {
+  border: 2px solid var(--theme-main)66;
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.8),
+    var(--theme-soft)cc);
+  box-shadow: 0 4px 12px var(--theme-main)44;
+  transition: all 200ms ease;
+}
+
+.score-list li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--theme-main)55;
+}
+
+.score-rank {
+  background: var(--theme-accent);
+  color: white;
+  border: 2px solid var(--theme-main);
+  font-weight: 700;
+}
+
+/* ============================================
+   LESSONS AND GAMES
+   ============================================ */
+
+.lesson-world,
+.typing-page {
+  background: 
+    linear-gradient(180deg, rgba(24, 32, 38, 0.78), rgba(24, 32, 38, 0.9)),
+    var(--theme-image),
+    var(--theme-gradient);
+  background-size: cover, cover, 100% 100%;
+  background-position: center, center, 0 0;
+  background-attachment: fixed;
+  transition: all var(--theme-transition);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .hero-panel {
+    grid-template-columns: 1fr;
+    min-height: 200px;
+    padding: 20px;
+  }
+
+  .test-card {
+    min-height: auto;
+  }
+}
+
+/* ============================================
+   THEME-SPECIFIC OVERRIDES
+   ============================================ */
+
+body[data-theme='ocean'] {
+  --theme-main: #2fa9c9;
+  --theme-dark: #146987;
+  --theme-soft: #e9fbff;
+  --theme-accent: #77e1ff;
+}
+
+body[data-theme='adventure'] {
+  --theme-main: #7c3aed;
+  --theme-dark: #5b21b6;
+  --theme-soft: #ede9fe;
+  --theme-accent: #a78bfa;
+}
+
+body[data-theme='cosmic'] {
+  --theme-main: #ec4899;
+  --theme-dark: #be185d;
+  --theme-soft: #fce7f3;
+  --theme-accent: #f472b6;
+}
+
+body[data-theme='candy'] {
+  --theme-main: #f97316;
+  --theme-dark: #c2410c;
+  --theme-soft: #ffedd5;
+  --theme-accent: #fed7aa;
+}
+
+body[data-theme='princess'] {
+  --theme-main: #e66cb1;
+  --theme-dark: #8d3c78;
+  --theme-soft: #fff0f8;
+  --theme-accent: #ffd166;
+}
+
+body[data-theme='dino'] {
+  --theme-main: #55aa55;
+  --theme-dark: #23633d;
+  --theme-soft: #effbed;
+  --theme-accent: #ffb347;
+}
+
+body[data-theme='space'] {
+  --theme-main: #5657d9;
+  --theme-dark: #252664;
+  --theme-soft: #eeeeff;
+  --theme-accent: #58d6ff;
+}
+
+body[data-theme='jungle'] {
+  --theme-main: #3fa66b;
+  --theme-dark: #1c5c3c;
+  --theme-soft: #effaf2;
+  --theme-accent: #f5c542;
+}
+
+body[data-theme='robot'] {
+  --theme-main: #5f7ee8;
+  --theme-dark: #283b7a;
+  --theme-soft: #eef2ff;
+  --theme-accent: #7ee0cf;
+}
+
+body[data-theme='superhero'] {
+  --theme-main: #f05a5a;
+  --theme-dark: #802d55;
+  --theme-soft: #fff1f1;
+  --theme-accent: #ffd84d;
+}
+
+body[data-theme='sports'] {
+  --theme-main: #30a871;
+  --theme-dark: #195f48;
+  --theme-soft: #edfff6;
+  --theme-accent: #ffc83d;
+}
+
+body[data-theme='music'] {
+  --theme-main: #9b5de5;
+  --theme-dark: #4b287a;
+  --theme-soft: #f6efff;
+  --theme-accent: #00d4ff;
+}
